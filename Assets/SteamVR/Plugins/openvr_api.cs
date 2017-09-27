@@ -1,4 +1,4 @@
-//======= Copyright (c) Valve Corporation, All rights reserved. ===============
+﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 //
 // Purpose: This file contains C#/managed code bindings for the OpenVR interfaces
 // This file is auto-generated, do not edit it.
@@ -1667,9 +1667,11 @@ public class CVRSystem
 	}
 	public bool PollNextEvent(ref VREvent_t pEvent,uint uncbVREvent)
 	{
-		if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
-				(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
-		{
+#if !NETFX_CORE
+        if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
+			(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
+        {
 			PollNextEventUnion u;
 			VREvent_t_Packed event_packed = new VREvent_t_Packed();
 			u.pPollNextEventPacked = null;
@@ -1711,9 +1713,11 @@ public class CVRSystem
 	}
 	public bool GetControllerState(uint unControllerDeviceIndex,ref VRControllerState_t pControllerState,uint unControllerStateSize)
 	{
-		if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
-				(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
-		{
+#if !NETFX_CORE
+        if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
+			(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
+        {
 			GetControllerStateUnion u;
 			VRControllerState_t_Packed state_packed = new VRControllerState_t_Packed(pControllerState);
 			u.pGetControllerStatePacked = null;
@@ -1740,9 +1744,11 @@ public class CVRSystem
 	}
 	public bool GetControllerStateWithPose(ETrackingUniverseOrigin eOrigin,uint unControllerDeviceIndex,ref VRControllerState_t pControllerState,uint unControllerStateSize,ref TrackedDevicePose_t pTrackedDevicePose)
 	{
-		if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
-				(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
-		{
+#if !NETFX_CORE
+        if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
+			(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
+        {
 			GetControllerStateWithPoseUnion u;
 			VRControllerState_t_Packed state_packed = new VRControllerState_t_Packed(pControllerState);
 			u.pGetControllerStateWithPosePacked = null;
@@ -2705,9 +2711,11 @@ public class CVROverlay
 	}
 	public bool PollNextOverlayEvent(ulong ulOverlayHandle,ref VREvent_t pEvent,uint uncbVREvent)
 	{
-		if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
-				(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
-		{
+#if !NETFX_CORE
+        if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
+			(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
+        {
 			PollNextOverlayEventUnion u;
 			VREvent_t_Packed event_packed = new VREvent_t_Packed();
 			u.pPollNextOverlayEventPacked = null;
@@ -2981,9 +2989,11 @@ public class CVRRenderModels
 	}
 	public bool GetComponentState(string pchRenderModelName,string pchComponentName,ref VRControllerState_t pControllerState,ref RenderModel_ControllerMode_State_t pState,ref RenderModel_ComponentState_t pComponentState)
 	{
-		if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
-				(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
-		{
+#if !NETFX_CORE
+        if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
+			(System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
+        {
 			GetComponentStateUnion u;
 			VRControllerState_t_Packed state_packed = new VRControllerState_t_Packed(pControllerState);
 			u.pGetComponentStatePacked = null;

@@ -759,15 +759,19 @@ public class SteamVR_RenderModel : MonoBehaviour
 	}
 
     /// <summary>
-    /// Helper function to handle the inconvenient fact that the packing for RenderModel_t is 
+    /// Helper function to handle the inconvenient fact that the packing for RenderModel_t is
     /// different on Linux/OSX (4) than it is on Windows (8)
     /// </summary>
     /// <param name="pRenderModel">native pointer to the RenderModel_t</param>
     /// <returns></returns>
     private RenderModel_t MarshalRenderModel(System.IntPtr pRenderModel)
     {
+#if NETFX_CORE
+        if (false)
+#else
         if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
             (System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
         {
             var packedModel = (RenderModel_t_Packed)Marshal.PtrToStructure(pRenderModel, typeof(RenderModel_t_Packed));
             RenderModel_t model = new RenderModel_t();
@@ -781,15 +785,19 @@ public class SteamVR_RenderModel : MonoBehaviour
     }
 
     /// <summary>
-    /// Helper function to handle the inconvenient fact that the packing for RenderModel_TextureMap_t is 
+    /// Helper function to handle the inconvenient fact that the packing for RenderModel_TextureMap_t is
     /// different on Linux/OSX (4) than it is on Windows (8)
     /// </summary>
     /// <param name="pRenderModel">native pointer to the RenderModel_TextureMap_t</param>
     /// <returns></returns>
     private RenderModel_TextureMap_t MarshalRenderModel_TextureMap(System.IntPtr pRenderModel)
     {
+#if NETFX_CORE
+        if (false)
+#else
         if ((System.Environment.OSVersion.Platform == System.PlatformID.MacOSX) ||
             (System.Environment.OSVersion.Platform == System.PlatformID.Unix))
+#endif
         {
             var packedModel = (RenderModel_TextureMap_t_Packed)Marshal.PtrToStructure(pRenderModel, typeof(RenderModel_TextureMap_t_Packed));
             RenderModel_TextureMap_t model = new RenderModel_TextureMap_t();
